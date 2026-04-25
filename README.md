@@ -1,6 +1,6 @@
-# devenv-abstraction
+# DevHex
 
-A hexagonal-architecture Go library for abstracting development environment backends (Docker, Podman, Nix, process-compose, native processes) behind a single port interface.
+A hexagonal-architecture Go library for abstracting development environment backends behind a single port interface. DevHex provides uniform access to Docker, Podman, Nix, process-compose, and native process management, enabling seamless switching between containerized and local development environments.
 
 ## Architecture
 
@@ -69,12 +69,35 @@ func main() {
 | `nix` | WIP (WP05) | `nix develop` / `nix-shell` |
 | `native` | WIP (WP04) | process-compose / bare exec |
 
+## Design Philosophy
+
+- **Hexagonal Architecture** — Domain layer has zero external dependencies; adapters implement the port interface
+- **Pluggable Backends** — Register and switch backends at runtime without code changes
+- **Type Safety** — Go interfaces ensure compile-time correctness
+- **Minimal Wrapping** — Thin adapter layer over native SDKs (docker-go, nix CLI)
+
 ## Development
 
 ```bash
 go build ./...
 go test ./...
+go mod tidy
 ```
+
+## Project Status
+
+- **Status**: Active
+- **Language**: Go 1.23+
+- **Type**: Abstraction Library
+- **Part of**: Phenotype Ecosystem
+- **Integrates With**: Helios, DevEnv, AgilePlus
+
+## Testing & Quality
+
+- Unit tests for each adapter and domain logic
+- Integration tests with real backends (Docker, Nix)
+- Functional requirement traceability in AgilePlus
+- Code review and linting with golangci-lint
 
 ## License
 
