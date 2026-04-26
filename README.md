@@ -267,12 +267,8 @@ See [docs/BENCHMARKS.md](./docs/BENCHMARKS.md) for detailed results.
 
 ## License
 
-MIT — See LICENSE file for details.
+MIT — see [LICENSE](./LICENSE).
 
 ---
 
 **Last Updated**: 2026-04-25 | **Status**: Active Development
-
-## License
-
-MIT
