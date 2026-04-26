@@ -1,5 +1,11 @@
 # DevHex
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CodeQL](https://github.com/KooshaPari/DevHex/actions/workflows/codeql.yml/badge.svg)](https://github.com/KooshaPari/DevHex/actions/workflows/codeql.yml)
+[![Go](https://img.shields.io/badge/go-1.22+-00ADD8.svg?logo=go&logoColor=white)](go.mod)
+
+**Status:** maintenance
+
 A hexagonal-architecture Go library for abstracting development environment backends behind a single port interface. DevHex provides uniform access to Docker, Podman, Nix, process-compose, and native process management, enabling seamless switching between containerized and local development environments.
 
 ## Architecture
