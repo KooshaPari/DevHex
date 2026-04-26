@@ -1,5 +1,10 @@
 # DevHex
 
+[![Build](https://img.shields.io/github/actions/workflow/status/KooshaPari/DevHex/quality-gate.yml?branch=main&label=build)](https://github.com/KooshaPari/DevHex/actions)
+[![Release](https://img.shields.io/github/v/release/KooshaPari/DevHex?include_prereleases&sort=semver)](https://github.com/KooshaPari/DevHex/releases)
+[![License](https://img.shields.io/github/license/KooshaPari/DevHex)](LICENSE)
+[![Phenotype](https://img.shields.io/badge/Phenotype-org-blueviolet)](https://github.com/KooshaPari)
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![CodeQL](https://github.com/KooshaPari/DevHex/actions/workflows/codeql.yml/badge.svg)](https://github.com/KooshaPari/DevHex/actions/workflows/codeql.yml)
 [![Go](https://img.shields.io/badge/go-1.22+-00ADD8.svg?logo=go&logoColor=white)](go.mod)
