@@ -1,5 +1,5 @@
 // Package docker implements the domain.Environment port for Docker/Podman backends.
-// wraps: github.com/docker/docker v27.3.1
+// wraps: github.com/moby/moby/client v0.4.1
 package docker
 
 import (
@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"io"
 
-	dockerclient "github.com/docker/docker/client"
 	"github.com/KooshaPari/devenv-abstraction/pkg/domain"
+	dockerclient "github.com/moby/moby/client"
 )
 
 // Adapter implements domain.Environment backed by the Docker daemon.
