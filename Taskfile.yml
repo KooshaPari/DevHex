@@ -2,7 +2,9 @@ version: "3"
 
 vars:
   GO_PACKAGES: ./...
+  GO_BUILD_FLAGS:
   GO_TEST_FLAGS: -count=1
+  GO_CLEAN_FLAGS:
 
 tasks:
   default:
@@ -14,7 +16,7 @@ tasks:
   build:
     desc: Build all Go packages
     cmds:
-      - go build {{.GO_PACKAGES}}
+      - go build {{.GO_BUILD_FLAGS}} {{.GO_PACKAGES}}
 
   test:
     desc: Run the Go test suite
@@ -31,4 +33,4 @@ tasks:
   clean:
     desc: Remove local Go build and test artifacts
     cmds:
-      - go clean {{.GO_PACKAGES}}
+      - go clean {{.GO_CLEAN_FLAGS}} {{.GO_PACKAGES}}
