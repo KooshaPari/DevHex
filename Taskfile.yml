@@ -1,0 +1,25 @@
+version: "3"
+
+tasks:
+  build:
+    desc: Build all Go packages.
+    cmds:
+      - go build ./...
+
+  test:
+    desc: Run the Go test suite.
+    cmds:
+      - go test ./...
+
+  lint:
+    desc: Run Go vet and formatting checks.
+    cmds:
+      - go vet ./...
+      - sh -c 'files="$(gofmt -l .)"; if [ -n "$files" ]; then printf "%s\n" "$files"; exit 1; fi'
+
+  clean:
+    desc: Remove Go build and test cache artifacts.
+    cmds:
+      - go clean -cache -testcache
+      - find . -name "*.test" -type f -delete
+      - find . -name "coverage.out" -type f -delete
