@@ -30,3 +30,4 @@ tasks:
       - go clean {{.GO_PACKAGES}}
       - find . -name "*.test" -type f -delete
       - find . -name "coverage.out" -type f -delete
+      - find . -name "*.coverprofile" -type f -delete
