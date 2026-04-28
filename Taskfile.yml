@@ -6,6 +6,12 @@ vars:
   GOLANGCI_LINT_FLAGS: --allow-serial-runners
 
 tasks:
+  default:
+    desc: List available common tasks
+    cmds:
+      - task --list
+    silent: true
+
   build:
     desc: Build all Go packages
     cmds:
