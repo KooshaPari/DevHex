@@ -4,7 +4,7 @@ vars:
   GO_PACKAGES: ./...
   GO_BUILD_FLAGS:
   GO_TEST_FLAGS: -count=1
-  GO_CLEAN_FLAGS:
+  GO_CLEAN_FLAGS: -cache -testcache
 
 tasks:
   default:
@@ -34,4 +34,4 @@ tasks:
   clean:
     desc: Remove local Go build and test artifacts
     cmds:
-      - go clean {{.GO_CLEAN_FLAGS}} {{.GO_PACKAGES}}
+      - go clean {{.GO_CLEAN_FLAGS}}
