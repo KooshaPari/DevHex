@@ -2,23 +2,24 @@ version: "3"
 
 tasks:
   build:
-    desc: Build all Go packages.
+    desc: Build all Go packages
     cmds:
       - go build ./...
 
   test:
-    desc: Run the Go test suite.
+    desc: Run the Go test suite
     cmds:
       - go test ./...
 
   lint:
-    desc: Run Go vet and formatting checks.
+    desc: Run Go formatting and lint checks
     cmds:
-      - go vet ./...
       - sh -c 'files="$(gofmt -l .)"; if [ -n "$files" ]; then printf "%s\n" "$files"; exit 1; fi'
+      - go vet ./...
+      - golangci-lint run ./...
 
   clean:
-    desc: Remove local Go build artifacts.
+    desc: Remove local Go build artifacts
     cmds:
       - go clean ./...
       - find . -name "*.test" -type f -delete
