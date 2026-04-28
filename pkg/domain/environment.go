@@ -27,10 +27,10 @@ type Environment interface {
 type BackendType string
 
 const (
-	BackendDocker  BackendType = "docker"
-	BackendPodman  BackendType = "podman"
-	BackendNix     BackendType = "nix"
-	BackendNative  BackendType = "native"
+	BackendDocker BackendType = "docker"
+	BackendPodman BackendType = "podman"
+	BackendNix    BackendType = "nix"
+	BackendNative BackendType = "native"
 )
 
 // Config holds environment provisioning parameters.
