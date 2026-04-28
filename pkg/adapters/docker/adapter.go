@@ -21,9 +21,8 @@ type Adapter struct {
 // environment variables (DOCKER_HOST, DOCKER_TLS_VERIFY, etc.) following
 // the standard Docker SDK convention.
 func New() (domain.Environment, error) {
-	cli, err := dockerclient.NewClientWithOpts(
+	cli, err := dockerclient.New(
 		dockerclient.FromEnv,
-		dockerclient.WithAPIVersionNegotiation(),
 	)
 	if err != nil {
 		return nil, fmt.Errorf("docker adapter: failed to initialise client: %w", err)
