@@ -1,26 +1,30 @@
 version: "3"
 
+vars:
+  GO_PACKAGES: ./...
+
 tasks:
   build:
     desc: Build all Go packages
     cmds:
-      - go build ./...
+      - go build {{.GO_PACKAGES}}
 
   test:
     desc: Run the Go test suite
     cmds:
-      - go test ./...
+      - go test {{.GO_PACKAGES}}
 
   lint:
-    desc: Run Go formatting, vet, and lint checks
+    desc: Run Go formatting, module, vet, and lint checks
     cmds:
       - sh -c 'files="$(gofmt -l .)"; if [ -n "$files" ]; then printf "%s\n" "$files"; exit 1; fi'
-      - go vet ./...
-      - golangci-lint run --allow-serial-runners ./...
+      - go mod tidy -diff
+      - go vet {{.GO_PACKAGES}}
+      - golangci-lint run --allow-serial-runners {{.GO_PACKAGES}}
 
   clean:
-    desc: Remove local Go build and test artifacts
+    desc: Remove local Go build, test, and coverage artifacts
     cmds:
-      - go clean ./...
+      - go clean {{.GO_PACKAGES}}
       - find . -name "*.test" -type f -delete
       - find . -name "coverage.out" -type f -delete
