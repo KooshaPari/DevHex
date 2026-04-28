@@ -12,14 +12,14 @@ tasks:
       - go test ./...
 
   lint:
-    desc: Run Go formatting and lint checks
+    desc: Run Go formatting, vet, and lint checks
     cmds:
       - sh -c 'files="$(gofmt -l .)"; if [ -n "$files" ]; then printf "%s\n" "$files"; exit 1; fi'
       - go vet ./...
-      - golangci-lint run ./...
+      - golangci-lint run --allow-serial-runners ./...
 
   clean:
-    desc: Remove local Go build artifacts
+    desc: Remove local Go build and test artifacts
     cmds:
       - go clean ./...
       - find . -name "*.test" -type f -delete
