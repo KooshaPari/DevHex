@@ -75,7 +75,7 @@ func main() {
 
 | Backend | Status | Notes |
 |---------|--------|-------|
-| `docker` | WIP (WP02) | Wraps `docker/docker` SDK v27 |
+| `docker` | WIP (WP02) | Wraps `moby/moby/client` SDK v0.4.1 |
 | `podman` | Planned (WP02) | Reuses docker adapter via socket |
 | `nix` | WIP (WP05) | `nix develop` / `nix-shell` |
 | `native` | WIP (WP04) | process-compose / bare exec |
