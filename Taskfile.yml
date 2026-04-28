@@ -4,7 +4,6 @@ vars:
   GO_PACKAGES: ./...
   GO_BUILD_FLAGS:
   GO_TEST_FLAGS: -count=1
-  GO_CLEAN_FLAGS: -cache -testcache
 
 tasks:
   default:
@@ -32,6 +31,7 @@ tasks:
       - golangci-lint run {{.GO_PACKAGES}}
 
   clean:
-    desc: Remove local Go build and test artifacts
+    desc: Remove local Go package artifacts and cached test results
     cmds:
-      - go clean {{.GO_CLEAN_FLAGS}}
+      - go clean {{.GO_PACKAGES}}
+      - go clean -testcache
