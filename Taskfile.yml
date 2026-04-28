@@ -18,8 +18,8 @@ tasks:
       - sh -c 'files="$(gofmt -l .)"; if [ -n "$files" ]; then printf "%s\n" "$files"; exit 1; fi'
 
   clean:
-    desc: Remove Go build and test cache artifacts.
+    desc: Remove local Go build artifacts.
     cmds:
-      - go clean -cache -testcache
+      - go clean ./...
       - find . -name "*.test" -type f -delete
       - find . -name "coverage.out" -type f -delete
