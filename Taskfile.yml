@@ -2,6 +2,8 @@ version: "3"
 
 vars:
   GO_PACKAGES: ./...
+  GO_TEST_FLAGS: -count=1
+  GOLANGCI_LINT_FLAGS: --allow-serial-runners
 
 tasks:
   build:
@@ -12,15 +14,15 @@ tasks:
   test:
     desc: Run the Go test suite
     cmds:
-      - go test {{.GO_PACKAGES}}
+      - go test {{.GO_TEST_FLAGS}} {{.GO_PACKAGES}}
 
   lint:
-    desc: Run Go formatting, module, vet, and lint checks
+    desc: Run Go formatting, module, vet, and golangci-lint checks
     cmds:
       - sh -c 'files="$(gofmt -l .)"; if [ -n "$files" ]; then printf "%s\n" "$files"; exit 1; fi'
       - go mod tidy -diff
       - go vet {{.GO_PACKAGES}}
-      - golangci-lint run --allow-serial-runners {{.GO_PACKAGES}}
+      - golangci-lint run {{.GOLANGCI_LINT_FLAGS}} {{.GO_PACKAGES}}
 
   clean:
     desc: Remove local Go build, test, and coverage artifacts
