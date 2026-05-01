@@ -223,12 +223,12 @@ env.Start(ctx, domain.Config{
 
 ## Integration Patterns
 
-### With heliosCLI
+### With helioscope
 
 Use DevHex to run code execution in isolated environments:
 
 ```go
-// In heliosCLI sandbox module
+// In helioscope sandbox module
 env, _ := devenv.New(backend)
 env.Start(ctx, userConfig)
 result, _ := env.Exec(ctx, []string{"bash", "-c", userCode})
@@ -265,7 +265,7 @@ See [docs/BENCHMARKS.md](./docs/BENCHMARKS.md) for detailed results.
 - **Language**: Go 1.23+
 - **Type**: Abstraction Library
 - **Part of**: Phenotype Ecosystem
-- **Integrates With**: heliosCLI, AgilePlus, DevEnv
+- **Integrates With**: helioscope, AgilePlus, DevEnv
 - **Testing**: All code requires unit + integration tests
 - **Quality**: Zero golangci-lint warnings required for merge
 
